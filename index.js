@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const audio = require("./airhorn.js");
 
-const { getAudio, isListCommand, listCommands } = audio;
+const { getAudio, listCommands } = audio;
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -26,8 +26,6 @@ client.on("message", async message => {
     }
 
     listCommands(message);
-  } else {
-    message.reply("You need to join a voice channel first!");
   }
 });
 client.login(process.env.BOT_TOKEN);
